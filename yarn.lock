@@ -47,7 +47,7 @@
   resolved "https://registry.yarnpkg.com/@adminjs/express/-/express-6.0.0.tgz#9ad77dda79034682aee22f746f9b9460d5e5739a"
   integrity sha512-TIylSszG5yUp+uHFYWWCrlztViiR05KM7suDo4SWd4UezZYc0mwNgfYPsnEmKkf5VFMEiCtYqhdCt38OxUPn/g==
 
-"@adminjs/prisma@^4.0.0":
+"@adminjs/prisma@4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@adminjs/prisma/-/prisma-4.0.0.tgz#44c11c89519ae222914d2d8307bb6241298a39d7"
   integrity sha512-5ziwfCGJiQayQIiA/BSlwdU3YOQetZbyswR49pZy1bPuOKnelyAgdpQj+vuOrZltN1dathKZ4jCawyapPl7wTw==
@@ -1714,10 +1714,10 @@
   resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-4.13.0-50.1e7af066ee9cb95cf3a403c78d9aab3e6b04f37a.tgz#ae338908d11685dee50e7683502d75442b955bf9"
   integrity sha512-fsQlbkhPJf08JOzKoyoD9atdUijuGBekwoOPZC3YOygXEml1MTtgXVpnUNchQlRSY82OQ6pSGQ9PxUe4arcSLQ==
 
-"@prisma/engines@4.11.0":
-  version "4.11.0"
-  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-4.11.0.tgz#c99749bfe20f58e8f4d2b5e04fee0785eba440e1"
-  integrity sha512-0AEBi2HXGV02cf6ASsBPhfsVIbVSDC9nbQed4iiY5eHttW9ZtMxHThuKZE1pnESbr8HRdgmFSa/Kn4OSNYuibg==
+"@prisma/engines@4.13.0":
+  version "4.13.0"
+  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-4.13.0.tgz#582a6b90b6efeb0f465984f1fe0e72a4afaaa5ae"
+  integrity sha512-HrniowHRZXHuGT9XRgoXEaP2gJLXM5RMoItaY2PkjvuZ+iHc0Zjbm/302MB8YsPdWozAPHHn+jpFEcEn71OgPw==
 
 "@redux-devtools/extension@^3.2.5":
   version "3.2.5"
@@ -3795,6 +3795,21 @@ dom-helpers@^5.0.1:
     "@babel/runtime" "^7.8.7"
     csstype "^3.0.2"
 
+dotenv-cli@^7.2.1:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/dotenv-cli/-/dotenv-cli-7.2.1.tgz#e595afd9ebfb721df9da809a435b9aa966c92062"
+  integrity sha512-ODHbGTskqRtXAzZapDPvgNuDVQApu4oKX8lZW7Y0+9hKA6le1ZJlyRS687oU9FXjOVEDU/VFV6zI125HzhM1UQ==
+  dependencies:
+    cross-spawn "^7.0.3"
+    dotenv "^16.0.0"
+    dotenv-expand "^10.0.0"
+    minimist "^1.2.6"
+
+dotenv-expand@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-10.0.0.tgz#12605d00fb0af6d0a592e6558585784032e4ef37"
+  integrity sha512-GopVGCpVS1UKH75VKHGuQFqS1Gusej0z4FyQkPdwjil2gNIv+LNsqBlboOzpJFZKVT95GkCyWJbBSdFEFUWI2A==
+
 dotenv-safe@^8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/dotenv-safe/-/dotenv-safe-8.2.0.tgz#8d548c7318a62c09a66c4dc8c31864cc007c78ba"
@@ -3848,9 +3863,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.284:
-  version "1.4.367"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.367.tgz#d9ddc529ba2315fc852b722c359e4a40e86aa742"
-  integrity sha512-mNuDxb+HpLhPGUKrg0hSxbTjHWw8EziwkwlJNkFUj3W60ypigLDRVz04vU+VRsJPi8Gub+FDhYUpuTm9xiEwRQ==
+  version "1.4.368"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.368.tgz#75901f97d3e23da2e66feb1e61fbb8e70ac96430"
+  integrity sha512-e2aeCAixCj9M7nJxdB/wDjO6mbYX+lJJxSJCXDzlr5YPGYVofuJwGN9nKg2o6wWInjX6XmxRinn3AeJMK81ltw==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -6564,12 +6579,12 @@ pretty-ms@7.0.1, pretty-ms@^7.0.1:
   dependencies:
     parse-ms "^2.1.0"
 
-prisma@4.11.0:
-  version "4.11.0"
-  resolved "https://registry.yarnpkg.com/prisma/-/prisma-4.11.0.tgz#9695ba4129a43eab3e76b5f7a033c6c020377725"
-  integrity sha512-4zZmBXssPUEiX+GeL0MUq/Yyie4ltiKmGu7jCJFnYMamNrrulTBc+D+QwAQSJ01tyzeGHlD13kOnqPwRipnlNw==
+prisma@4.13.0:
+  version "4.13.0"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-4.13.0.tgz#0b83f40acf50cd47d7463a135c4e9b275713e602"
+  integrity sha512-L9mqjnSmvWIRCYJ9mQkwCtj4+JDYYTdhoyo8hlsHNDXaZLh/b4hR0IoKIBbTKxZuyHQzLopb/+0Rvb69uGV7uA==
   dependencies:
-    "@prisma/engines" "4.11.0"
+    "@prisma/engines" "4.13.0"
 
 process-nextick-args@~2.0.0:
   version "2.0.1"

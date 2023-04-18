@@ -2,13 +2,12 @@ import AdminJS from "adminjs";
 import * as AdminJSPrisma from "@adminjs/prisma";
 import AdminJSExpress from "@adminjs/express";
 import express from "express";
-import { prisma } from "./db";
 import { DMMFClass } from "@prisma/client/runtime";
-
-
-const session = require("express-session");
-const connectRedis = require("connect-redis");
-const redis = require("redis");
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
+import * as session from "express-session";
+import connectRedis from "connect-redis";
+import * as redis from "redis";
 
 const RedisStore = connectRedis(session);
 const redisClient = redis.createClient(process.env.REDIS_URL || "redis://localhost:6379");
