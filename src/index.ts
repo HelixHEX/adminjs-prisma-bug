@@ -39,14 +39,6 @@ const start = async () => {
         resource: { model: dmmf.modelMap.User, client: prisma },
         options: {},
       },
-      {
-        resource: { model: dmmf.modelMap.Project, client: prisma },
-        options: {},
-      },
-      {
-        resource: { model: dmmf.modelMap.Apikey, client: prisma },
-        options: {},
-      },
     ],
   };
   const admin = new AdminJS(adminOptions);
