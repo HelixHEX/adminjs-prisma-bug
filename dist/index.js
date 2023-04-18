@@ -44,7 +44,7 @@ const session = require("express-session");
 const connectRedis = require("connect-redis");
 const redis = require("redis");
 const RedisStore = connectRedis(session);
-const redisClient = redis.createClient(process.env.REDIS_URL);
+const redisClient = redis.createClient(process.env.REDIS_URL || "redis://localhost:6379");
 const PORT = process.env.PORT || 3000;
 adminjs_1.default.registerAdapter({
     Resource: AdminJSPrisma.Resource,
@@ -82,10 +82,10 @@ const start = () => __awaiter(void 0, void 0, void 0, function* () {
     const adminRouter = express_1.default.buildAuthenticatedRouter(admin, {
         authenticate,
         cookieName: "adminjs",
-        cookiePassword: "somepassword",
+        cookiePassword: process.env.COOKIE_PASSWORD || 'cookiepassword',
     }, null, {
         store: new RedisStore({ client: redisClient }),
-        secret: "somepassword",
+        secret: process.env.SESSION_SECRET || 'secret',
         resave: false,
         saveUninitialized: true,
         cookie: {

@@ -56,12 +56,12 @@ const start = async () => {
     {
       authenticate,
       cookieName: "adminjs",
-      cookiePassword: "somepassword",
+      cookiePassword: process.env.COOKIE_PASSWORD || 'cookiepassword',
     },
     null,
     {
       store: new RedisStore({ client: redisClient }),
-      secret: "somepassword",
+      secret: process.env.SESSION_SECRET || 'secret',
       resave: false,
       saveUninitialized: true,
       cookie: {
