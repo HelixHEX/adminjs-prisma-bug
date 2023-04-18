@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  relationMode = "prisma"
+  url          = env("DATABASE_URL")
+}
+
+model User {
+  id                     Int           @id @default(autoincrement())
+  createdAt              DateTime      @default(now()) @map("created_at")
+  updatedAt              DateTime      @updatedAt @map("updated_at")
+  email                  String        @unique
+  name                   String
+  password               String
+  profile_img            String?
+  show_inactive_projects Boolean       @default(false)
+  api_key                Apikey?
+  projects               Project[]
+  role                   String        @default("user")
+  websites               Website[]
+  subscription           Subscription?
+}
+
+model Project {
+  id               Int       @id @default(autoincrement())
+  createdAt        DateTime  @default(now()) @map("created_at")
+  updatedAt        DateTime  @updatedAt @map("updated_at")
+  name             String
+  github_url       String?
+  language         String?
+  description      String?
+  active           Boolean
+  image_url        String    @default("https://res.cloudinary.com/practicaldev/image/fetch/s--qo_Wp38Z--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/e0nl7ziy1la7bpwj7rsp.png")
+  owner            User      @relation(references: [id], fields: [userId])
+  ownerId          Int
+  status           String    @default("pending")
+  websites         Website[]
+  defaultWebsiteId Int?
+  live_url         String?
+  userId           Int
+
+  @@index([userId])
+}
+
+model Website {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  url         String
+  environment String?  @default("production")
+  project     Project? @relation(fields: [projectId], references: [id])
+  projectId   Int?
+  status      String   @default("pending")
+  owner       User     @relation(fields: [ownerId], references: [id])
+  ownerId     Int    
+  default     Boolean  @default(false)
+  tracking    Boolean  @default(false)
+
+  @@index([projectId])
+  @@index([ownerId])
+}
+
+model Apikey {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  key       String   @unique
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int      @unique
+}
+
+model Service {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  prefix    String
+  target    String
+  name      String
+  status    String   @default("pending")
+}
+
+model Subscription {
+  id             Int       @id @default(autoincrement())
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+  subscriptionId String    @unique
+  user           User      @relation(fields: [userId], references: [id])
+  userId         Int       @unique
+  status         String    @default("pending")
+  plan           String    @default("hobby")
+  ends_at        DateTime?
+  renews_at      DateTime?
+}
