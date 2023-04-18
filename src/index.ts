@@ -5,9 +5,9 @@ import express from "express";
 import { DMMFClass } from "@prisma/client/runtime";
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
-import * as session from "express-session";
+import session from "express-session";
 import connectRedis from "connect-redis";
-import * as redis from "redis";
+import redis from "redis";
 
 const RedisStore = connectRedis(session);
 const redisClient = redis.createClient(process.env.REDIS_URL || "redis://localhost:6379");
